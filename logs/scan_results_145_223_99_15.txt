@@ -1,0 +1,28 @@
+IP Port Scanner Results
+==================================================
+
+Scan Date: 2025-05-01 00:14:55
+Target IP: 145.223.99.15
+Scan Duration: 11.03 seconds
+
+IP Information:
+--------------------
+status: success
+country: Germany
+countryCode: DE
+region: HE
+regionName: Hesse
+city: Frankfurt am Main
+zip: 60313
+lat: 50.1169
+lon: 8.6837
+timezone: Europe/Berlin
+isp: Hostinger International Limited
+org: Hostinger
+as: AS47583 Hostinger International Limited
+query: 145.223.99.15
+
+Open Ports:
+--------------------
+Port 22 is open
+Port 25 is open

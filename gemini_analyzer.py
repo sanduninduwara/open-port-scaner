@@ -1,0 +1,99 @@
+import requests
+import json
+from datetime import datetime
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+# Get API key from environment variable
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')
+if not GEMINI_API_KEY:
+    raise ValueError("GEMINI_API_KEY environment variable is not set. Please set it in your .env file.")
+
+GEMINI_API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
+
+def analyze_with_gemini(scan_results):
+    """Analyze scan results using Gemini API and generate mock vulnerabilities"""
+    headers = {
+        "Content-Type": "application/json",
+    }
+    
+    # Prepare the prompt for Gemini
+    prompt = f"""
+    Here my scan results contains the ip address, the open ports and the ip information.
+    generate a report like a Nmap scan report.
+    Important: Do not include any other text than the report.
+    
+    
+    Scan Results:
+    {scan_results}
+    
+
+    """
+    
+    data = {
+        "contents": [{
+            "parts": [{
+                "text": prompt
+            }]
+        }]
+    }
+    
+    try:
+        response = requests.post(
+            f"{GEMINI_API_URL}?key={GEMINI_API_KEY}",
+            headers=headers,
+            json=data
+        )
+        
+        if response.status_code == 200:
+            result = response.json()
+            return result.get("candidates", [{}])[0].get("content", {}).get("parts", [{}])[0].get("text", "No analysis available")
+        else:
+            return f"Error: API request failed with status code {response.status_code}"
+    except Exception as e:
+        return f"Error analyzing results: {str(e)}"
+
+def read_scan_results(file_path):
+    """Read scan results from file"""
+    try:
+        with open(file_path, 'r') as file:
+            return file.read()
+    except Exception as e:
+        return f"Error reading scan results: {str(e)}"
+
+def generate_mock_vulnerabilities(scan_results):
+    """Generate mock vulnerabilities based on scan results"""
+    # This is a fallback function in case the API fails
+    mock_vulnerabilities = []
+    
+    # Check for common ports and add mock vulnerabilities
+    if "80/tcp" in scan_results:
+        mock_vulnerabilities.append("🔴 Port 80 (HTTP) - Potential outdated web server version detected")
+        mock_vulnerabilities.append("🟡 Port 80 (HTTP) - Directory listing enabled")
+    
+    if "443/tcp" in scan_results:
+        mock_vulnerabilities.append("🔴 Port 443 (HTTPS) - Weak SSL/TLS configuration detected")
+        mock_vulnerabilities.append("🟡 Port 443 (HTTPS) - Certificate expires in 30 days")
+    
+    if "22/tcp" in scan_results:
+        mock_vulnerabilities.append("🟡 Port 22 (SSH) - Weak password policy detected")
+    
+    if "21/tcp" in scan_results:
+        mock_vulnerabilities.append("🔴 Port 21 (FTP) - Anonymous login enabled")
+    
+    if "3306/tcp" in scan_results:
+        mock_vulnerabilities.append("🔴 Port 3306 (MySQL) - Default credentials detected")
+    
+    if not mock_vulnerabilities:
+        mock_vulnerabilities.append("🟢 No critical vulnerabilities detected")
+    
+    return "\n".join(mock_vulnerabilities)
+
+if __name__ == "__main__":
+    # Example usage
+    scan_results = read_scan_results("scan_results_ip.txt")
+    analysis = analyze_with_gemini(scan_results)
+    print(analysis) 
