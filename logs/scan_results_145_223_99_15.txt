@@ -1,17 +1,18 @@
-# Nmap 7.94 scan initiated Sat May 03 11:21:52 2025 as: nmap -sV -p common top 100 --script http-enum,ssl-cert -oN scan_report.txt 145.223.99.15
+# Nmap 7.94 scan initiated Sat May 03 11:35:31 2025 as: nmap -sV -p common top 100 --script http-enum,ssl-cert -oN scan_report.txt 145.223.99.15
 
 Nmap scan report for 145.223.99.15
 Host is up (0.15s latency).
 
 PORT     STATE SERVICE    VERSION
 22/tcp  open   ssh         9.6p1 Ubuntu 3ubuntu13.11
+25/tcp  open   smtp        
 80/tcp  open   http        
 443/tcp  open   http        
 6001/tcp  open   X11:1       
 8000/tcp  open   http        
 
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
-Nmap done: 1 IP address (1 host up) scanned in 148.43 seconds
+Nmap done: 1 IP address (1 host up) scanned in 150.21 seconds
 
 IP Information:
 IP: 145.223.99.15

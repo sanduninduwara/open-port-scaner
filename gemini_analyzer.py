@@ -27,8 +27,6 @@ def analyze_with_gemini(scan_results):
     -about ports security vulnerabilities
     -about ip address security vulnerabilities
     -about the ip address general information
-    -about the ip address location
-    -about the ip address whois information
     -about the ip address dns information
     -about the ip address traceroute information
 
