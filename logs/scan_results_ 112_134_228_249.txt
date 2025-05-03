@@ -1,0 +1,18 @@
+# Nmap 7.94 scan initiated Sat May 03 11:50:56 2025 as: nmap -sV -p common top 100 --script http-enum,ssl-cert -oN scan_report.txt  112.134.228.249
+
+Nmap scan report for  112.134.228.249
+Host is up (0.15s latency).
+
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 2.17 seconds
+
+IP Information:
+IP:  112.134.228.249
+City: N/A
+Region: N/A
+Country: N/A
+ISP: N/A
+Organization: N/A
+Timezone: N/A
+AS: N/A

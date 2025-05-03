@@ -41,6 +41,8 @@ def analyze_with_gemini(scan_results):
     Scan Results:
     {scan_results}
     
+
+    If there is no vaild data in scan results just provide the data is invalied
     """
     
     data = {

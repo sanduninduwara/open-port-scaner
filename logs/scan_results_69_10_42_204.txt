@@ -1,0 +1,29 @@
+# Nmap 7.94 scan initiated Sat May 03 11:53:09 2025 as: nmap -sV -p common top 100 --script http-enum,ssl-cert -oN scan_report.txt 69.10.42.204
+
+Nmap scan report for 69.10.42.204
+Host is up (0.15s latency).
+
+PORT     STATE SERVICE    VERSION
+22/tcp  open   ssh         7.4
+25/tcp  filtered smtp        
+80/tcp  open   http        2.4.27
+143/tcp  filtered imap        
+179/tcp  filtered bgp         
+443/tcp  open   http        2.4.27
+587/tcp  filtered submission  
+5060/tcp  filtered sip         
+5101/tcp  filtered admdog      
+5432/tcp  filtered postgresql  
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 112.29 seconds
+
+IP Information:
+IP: 69.10.42.204
+City: Secaucus
+Region: NJ
+Country: United States
+ISP: Interserver, Inc
+Organization: Interserver, Inc
+Timezone: America/New_York
+AS: AS19318 Interserver, Inc
