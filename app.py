@@ -28,7 +28,7 @@ def run_port_scanner(ip_address):
         
         # Run the port scanner
         process = subprocess.Popen(
-            ['python', 'ip_port_scanner.py'],
+            ['python', 'ip_vulnerability_scanner.py'],
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,

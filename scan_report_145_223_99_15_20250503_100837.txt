@@ -1,0 +1,43 @@
+# Nmap 7.94 scan initiated Sat May 03 10:08:37 2025 as: nmap -sV -p 80,443,8080,8443,8000,8008,8081,8082,8083,8084,8085,8086,8087,8088,8089,8090 --script http-enum,ssl-cert -oN scan_report.txt 145.223.99.15
+
+Nmap scan report for 145.223.99.15
+Host is up (0.15s latency).
+
+PORT     STATE SERVICE    VERSION
+80/tcp  open   http        
+443/tcp  open   http        
+| ssl-cert:
+| Subject: commonName=TRAEFIK DEFAULT CERT
+| Subject Alternative Name: DNS:7e7bc86ff9ada7d2636bc3d3f42f72f5.e93c029b5901f8748200515df28651e2.traefik.default
+| Issuer: commonName=TRAEFIK DEFAULT CERT
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2025-05-03T00:00:22
+| Not valid after:  2026-05-03T00:00:22
+| MD5:   7def:0243:cbca:d873:5349:3503:af23:47e4
+| SHA-1: a66d:c713:3342:b828:3c24:427a:2366:8d43:ae2f:2f3f
+|
+8000/tcp  open   http        
+| http-enum:
+|     /login/: Login page
+|     /robots.txt: Robots file
+|     /healthcheck/: Spring Boot Actuator endpoint
+|     /healthchecks/: Spring Boot Actuator endpoint
+|
+8008/tcp  filtered http        
+8080/tcp  filtered http-proxy  
+8081/tcp  filtered blackice-icecap 
+8082/tcp  filtered blackice-alerts 
+8083/tcp  filtered us-srv      
+8084/tcp  filtered websnp      
+8085/tcp  filtered             
+8086/tcp  filtered d-s-n       
+8087/tcp  filtered simplifymedia 
+8088/tcp  filtered radan-http  
+8089/tcp  filtered             
+8090/tcp  filtered opsmessaging 
+8443/tcp  filtered https-alt   
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 761.10 seconds

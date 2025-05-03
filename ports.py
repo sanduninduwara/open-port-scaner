@@ -2,7 +2,8 @@
 PORTS = {
     # Web Services
     'web': [80, 443, 8080, 8443, 8000, 8008, 8081, 8082, 8083, 8084, 8085, 8086, 8087, 8088, 8089, 8090],
-    
+
+    'web_quick': [80, 443],
     # Database Services
     'database': [
         1433,  # MSSQL

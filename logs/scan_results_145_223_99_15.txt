@@ -1,28 +1,20 @@
-IP Port Scanner Results
-==================================================
+# Nmap 7.94 scan initiated Sat May 03 11:21:52 2025 as: nmap -sV -p common top 100 --script http-enum,ssl-cert -oN scan_report.txt 145.223.99.15
 
-Scan Date: 2025-05-01 00:14:55
-Target IP: 145.223.99.15
-Scan Duration: 11.03 seconds
+Nmap scan report for 145.223.99.15
+Host is up (0.15s latency).
+
+PORT     STATE SERVICE    VERSION
+22/tcp  open   ssh         9.6p1 Ubuntu 3ubuntu13.11
+80/tcp  open   http        
+443/tcp  open   http        
+6001/tcp  open   X11:1       
+8000/tcp  open   http        
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 148.43 seconds
 
 IP Information:
---------------------
-status: success
-country: Germany
-countryCode: DE
-region: HE
-regionName: Hesse
-city: Frankfurt am Main
-zip: 60313
-lat: 50.1169
-lon: 8.6837
-timezone: Europe/Berlin
-isp: Hostinger International Limited
-org: Hostinger
-as: AS47583 Hostinger International Limited
-query: 145.223.99.15
-
-Open Ports:
---------------------
-Port 22 is open
-Port 25 is open
+IP: 145.223.99.15
+City: Frankfurt am Main
+Region: HE
+Country: Germany
